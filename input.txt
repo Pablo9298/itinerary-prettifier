@@ -3,17 +3,47 @@ You will land at ##EGLL at T24(2022-05-09T16:07+01:00).
 Your flight departs from #HAJ, and your destination is ##EDDW.
 Enjoy your trip!
 
+Your flight departs from #HAJ, and your destination is ##EDDW.
+
 1. D(2022-05-09T08:07Z)
 2. T12(2069-04-24T19:18-02:00)
-3. T12(2080-05-04T14:54Z)
+3. T12(2080-05-04T14:54Z) 
 4. T12(1980-02-17T03:30+11:00)
 5. T12(2029-09-04T03:09Z)
 6. T24(2032-07-17T04:08+13:00)
 7. T24(2084-04-13T17:54Z)
 8. T24(2024-07-23T15:29-11:00)
 9. T24(2042-09-01T21:43Z)
+10. T13(2007-04-05T12:30−02:00)
+11. T12(2007-04-05T12:30−2:00)
 
-Your flight departs from #HAJ, and your destination is ##EDDW.
+#TLL #LED ##RIX ##EDI
 
-Some text\vSome more text\fYet more text\rEven more text
+Your flight departs from #EDI city of *#EDI, and your destination is *##EDDW.
+
+Rulon Oboev from #RKV city of *#RKV D(2022-05-09T08:07Z) T24(2084-04-13T17:54Z) and arrive to ##ULOO T12(2069-04-24T19:18-02:00).
+
+#TLL is in the city of *#TLL, not in *##RIX
+
+Pogrom Ustoev will depart from #YO T24(2042-09-01T21:43Z) and arrive to #TLL D(2022-05-09T08:07Z).
+
+Ushat Pomoev will depart from #XXX T24(2042-09-01T21:43Z) and arrive to ##TLL
+
+Ushat Pomoev departed from #RIX D(2022-05-09T08:07Z)
+Rulon Oboev #HEL T12(2069-04-24T19:18-02:00)
+Pogrom Ustoev #LED T12(2080-05-04T14:54Z)
+Nalog Sdohodov. T12(1980-02-17T03:30+11:00)
+Zagul Starleev. T12(2029-09-04T03:09Z)
+Kamaz Othodov. T24(2032-07-17T04:08+13:00)
+Podzhog Saraev. T24(2084-04-13T17:54Z)
+Ugon Harleev. T24(2024-07-23T15:29-11:00)
+Kvartet Goboev. T24(2042-09-01T21:43Z)
+Chered Zastoev. T13(2007-04-05T12:30−02:00)
+Udel Plebeev. T12(2007-04-05T12:30−2:00)
+
+
+
+
+Zagul Starleev departed from ##ULOO T12(2080-05-04T14:54Z) and arrived to #EDI D(2022-05-09T08:07Z)
+
 

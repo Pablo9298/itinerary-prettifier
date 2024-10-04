@@ -41,7 +41,7 @@ This is a command-line tool that processes flight itineraries, making them more 
 
 3. Compile the project:
     ```bash
-   javac prettifier/Prettifier.java
+   javac Prettifier.java
    ```
 
 ## Usage
@@ -51,7 +51,7 @@ The program is executed from the command line with three arguments: the input fi
 ### Example Command
     
    ```
-   java prettifier.Prettifier ./input.txt ./output.txt ./airport-lookup.csv.
+   java Prettifier ./input.txt ./output.txt ./airport-lookup.csv.
    ```
 
 ### Command-line Arguments
@@ -67,7 +67,7 @@ The program is executed from the command line with three arguments: the input fi
 
 
 ```bash 
-java prettifier.Prettifier -h
+java Prettifier -h
 ```
 
 ## Input File Format
