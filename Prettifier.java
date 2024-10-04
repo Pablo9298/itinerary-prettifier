@@ -62,7 +62,7 @@ public class Prettifier {
                 throw new IllegalArgumentException("CSV file is empty");
             }
     
-            // Проверяем заголовки
+         
             String[] headers = parseCSVLine(line);
             if (headers.length != 6) {
                 throw new IllegalArgumentException("Incorrect number of columns in the headers");
@@ -77,7 +77,7 @@ public class Prettifier {
                     throw new IllegalArgumentException("Error on line " + lineNumber + ": incorrect number of columns");
                 }
     
-                // Проверка на пустые значения
+            
                 if (fields[0].isEmpty() || fields[1].isEmpty() || fields[2].isEmpty() || fields[3].isEmpty() || fields[4].isEmpty() || fields[5].isEmpty()) {
                     throw new IllegalArgumentException("Error on line " + lineNumber + ": contains empty fields in one of the required columns");
                 }
@@ -132,7 +132,7 @@ public class Prettifier {
 
         for (String line : inputLines) {
             line = convertWhiteSpace(line);
-            line = converter.convertCodes(line, airportData); // Используем новый метод
+            line = converter.convertCodes(line, airportData);
             line = convertDatesAndTimes(line);
 
             if (line.trim().isEmpty()) {
