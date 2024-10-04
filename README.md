@@ -36,7 +36,7 @@ This is a command-line tool that processes flight itineraries, making them more 
 
 2. Navigate into the project directory:
     ```bash
-   cd itinerary-prettifier
+   cd itinerary
    ```
 
 3. Compile the project:
