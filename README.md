@@ -31,7 +31,7 @@ This is a command-line tool that processes flight itineraries, making them more 
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-username/itinerary-prettifier.git
+   git clone https://github.com/Pablo9298/itinerary-prettifier.git
    ```
 
 2. Navigate into the project directory:
