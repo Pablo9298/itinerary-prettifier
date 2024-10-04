@@ -55,56 +55,75 @@ public class Prettifier {
 
     private static Map<String, String[]> loadAirportLookup(String airportLookupFilePath) {
         Map<String, String[]> airportMap = new HashMap<>();
-
+    
         try (BufferedReader br = new BufferedReader(new FileReader(airportLookupFilePath))) {
             String line = br.readLine();
-            if (line == null)
-                return null;
-
-            String[] headers = line.split(",");
-            int nameIndex = -1, cityIndex = -1, icaoIndex = -1, iataIndex = -1;
-            for (int i = 0; i < headers.length; i++) {
-                switch (headers[i].trim()) {
-                    case "name":
-                        nameIndex = i;
-                        break;
-                    case "municipality":
-                        cityIndex = i;
-                        break;
-                    case "icao_code":
-                        icaoIndex = i;
-                        break;
-                    case "iata_code":
-                        iataIndex = i;
-                        break;
-                }
+            if (line == null) {
+                throw new IllegalArgumentException("CSV file is empty");
             }
-
-            if (nameIndex == -1 || cityIndex == -1 || icaoIndex == -1 || iataIndex == -1) {
-                throw new IllegalArgumentException("CSV file does not contain all required columns");
+    
+            // Проверяем заголовки
+            String[] headers = parseCSVLine(line);
+            if (headers.length != 6) {
+                throw new IllegalArgumentException("Incorrect number of columns in the headers");
             }
-
+    
+            int lineNumber = 1;
+    
             while ((line = br.readLine()) != null) {
-                String[] fields = line.split(",");
-                if (fields.length > Math.max(Math.max(nameIndex, cityIndex), Math.max(icaoIndex, iataIndex))) {
-                    String name = fields[nameIndex];
-                    String city = fields[cityIndex];
-                    String icao = fields[icaoIndex];
-                    String iata = fields[iataIndex];
-
-                    if (iata != null && !iata.isEmpty()) {
-                        airportMap.put(iata, new String[] { name, city });
-                    }
-                    if (icao != null && !icao.isEmpty()) {
-                        airportMap.put(icao, new String[] { name, city });
-                    }
+                lineNumber++;
+                String[] fields = parseCSVLine(line);
+                if (fields.length != 6) {
+                    throw new IllegalArgumentException("Error on line " + lineNumber + ": incorrect number of columns");
+                }
+    
+                // Проверка на пустые значения
+                if (fields[0].isEmpty() || fields[1].isEmpty() || fields[2].isEmpty() || fields[3].isEmpty() || fields[4].isEmpty() || fields[5].isEmpty()) {
+                    throw new IllegalArgumentException("Error on line " + lineNumber + ": contains empty fields in one of the required columns");
+                }
+    
+                String name = fields[0];
+                String city = fields[2];
+                String icao = fields[3];
+                String iata = fields[4];
+    
+                if (!iata.isEmpty()) {
+                    airportMap.put(iata, new String[]{name, city});
+                }
+                if (!icao.isEmpty()) {
+                    airportMap.put(icao, new String[]{name, city});
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
+    
         return airportMap;
+    }
+    
+    private static String[] parseCSVLine(String line) {
+        List<String> result = new ArrayList<>();
+        StringBuilder currentField = new StringBuilder();
+        boolean insideQuotes = false;
+    
+        for (int i = 0; i < line.length(); i++) {
+            char currentChar = line.charAt(i);
+    
+            if (currentChar == '"') {
+                insideQuotes = !insideQuotes; 
+            } else if (currentChar == ',' && !insideQuotes) {
+                
+                result.add(currentField.toString().trim());
+                currentField.setLength(0); 
+            } else {
+                currentField.append(currentChar);
+            }
+        }
+    
+        result.add(currentField.toString().trim());
+    
+        return result.toArray(new String[0]);
     }
 
     private static List<String> prettifyItinerary(List<String> inputLines, Map<String, String[]> airportData) {
